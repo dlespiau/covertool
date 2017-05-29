@@ -51,8 +51,8 @@ func TestMain(m *testing.M) {
 	// terminating the process.
 	exit.AtExit(cover.FlushProfiles)
 
-	// If the test binary name is cc-runtime.coverage, we've are being asked to
-	// run the coverage-instrumented cc-runtime.
+	// If the test binary name is "calc" we've are being asked to run the
+	// coverage-instrumented calc.
 	if path.Base(os.Args[0]) == "calc" {
 		main()
 		exit.Exit(0)
