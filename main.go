@@ -31,6 +31,7 @@ func main() {
 	app.Version = "0.1.0"
 	app.Commands = []cli.Command{
 		mergeCommand,
+		coverageCommand,
 	}
 
 	if err := app.Run(os.Args); err != nil {
