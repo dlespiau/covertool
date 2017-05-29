@@ -12,19 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package exit
 
 import "os"
 
 var atexitFuncs []func()
 
-// atexit registers a function f that will be run when exit is called.
-func atexit(f func()) {
+// Atexit registers a function f that will be run when exit is called.
+func Atexit(f func()) {
 	atexitFuncs = append(atexitFuncs, f)
 }
 
-// exit calls all atexit handlers before exiting the process with status.
-func exit(status int) {
+// Exit calls all atexit handlers before exiting the process with status.
+func Exit(status int) {
 	for _, f := range atexitFuncs {
 		f()
 	}
