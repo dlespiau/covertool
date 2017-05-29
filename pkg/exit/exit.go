@@ -18,12 +18,12 @@ import "os"
 
 var atexitFuncs []func()
 
-// Atexit registers a function f that will be run when exit is called.
-func Atexit(f func()) {
+// AtExit registers a function f that will be run when exit is called.
+func AtExit(f func()) {
 	atexitFuncs = append(atexitFuncs, f)
 }
 
-// Exit calls all atexit handlers before exiting the process with status.
+// Exit calls all AtExit handlers before exiting the process with status.
 func Exit(status int) {
 	for _, f := range atexitFuncs {
 		f()

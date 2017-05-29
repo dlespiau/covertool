@@ -49,7 +49,7 @@ func TestMain(m *testing.M) {
 
 	// Make sure we have the opportunity to flush the coverage report to disk when
 	// terminating the process.
-	exit.Atexit(cover.FlushProfiles)
+	exit.AtExit(cover.FlushProfiles)
 
 	// If the test binary name is cc-runtime.coverage, we've are being asked to
 	// run the coverage-instrumented cc-runtime.
