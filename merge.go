@@ -117,7 +117,7 @@ func WriteProfile(w io.Writer, profiles []*Profile) error {
 
 func merge(ctx *cli.Context) error {
 	args := ctx.Args()
-	if len(args) != 2 {
+	if len(args) < 2 {
 		return fmt.Errorf("expecting at least two arguments, got %d", len(args))
 	}
 	aggregatedProfile, err := ioutil.TempFile("", "cover-tool-")
