@@ -32,6 +32,7 @@ func main() {
 	app.Commands = []cli.Command{
 		mergeCommand,
 		coverageCommand,
+		sortCommand,
 	}
 
 	if err := app.Run(os.Args); err != nil {
