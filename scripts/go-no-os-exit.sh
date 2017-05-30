@@ -11,7 +11,7 @@ for f in $candidates; do
 	files="$f $files"
 done
 
-grep -n os.Exit $files && {
-	echo 'Direct calls to os.Exit() are forbidden, please use exit.Exit() so exit.Atexit() works'
+if grep -n os.Exit $files; then
+	echo 'Direct calls to os.Exit() are forbidden, please use exit() so atexit() works'
 	exit 1
-}
+fi
