@@ -5,7 +5,7 @@ The full story can be read in this [blog post](
 http://damien.lespiau.name/2017/05/building-and-using-coverage.html).
 
 Package [cover](https://github.com/dlespiau/covertool/tree/master/pkg/cover)
-can be used to build instrumented binary.
+can be used to build instrumented programs.
 
 Package [exit](https://github.com/dlespiau/covertool/tree/master/pkg/exit)
 is an atexit implementation.
