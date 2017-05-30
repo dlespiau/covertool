@@ -16,7 +16,7 @@ same binary and display the resulting code coverage:
 ```
 $ go install github.com/dlespiau/covertool
 $ covertool merge -o all.go unit-tests.cov usecase1.cov usecase2.cov error1.cov error2.cov ...
-$ covertool coverage all.go
+$ covertool report all.go
 coverage: 92.9% of statements
 ```
 

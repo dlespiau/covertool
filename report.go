@@ -27,7 +27,7 @@ func percent(active, total int64) float64 {
 	return 100 * float64(active) / float64(total)
 }
 
-func coverage(ctx *cli.Context) error {
+func report(ctx *cli.Context) error {
 	args := ctx.Args()
 	if len(args) != 1 {
 		return fmt.Errorf("expecting one argument, got %d", len(args))
@@ -55,10 +55,10 @@ func coverage(ctx *cli.Context) error {
 	return nil
 }
 
-var coverageCommand = cli.Command{
+var reportCommand = cli.Command{
 
-	Name:      "coverage",
+	Name:      "report",
 	Usage:     "report coverage information",
 	ArgsUsage: "profile",
-	Action:    coverage,
+	Action:    report,
 }

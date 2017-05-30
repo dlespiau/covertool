@@ -35,4 +35,4 @@ go install github.com/dlespiau/covertool
 
 echo "• Merge all coverage profiles and report the total coverage"
 covertool merge -o all.cov unit-tests.cov sub.cov error1.cov error2.cov
-covertool coverage all.cov
+covertool report all.cov
