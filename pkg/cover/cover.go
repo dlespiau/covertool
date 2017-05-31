@@ -42,7 +42,7 @@ func ParseAndStripTestFlags() {
 	os.Args = runtimeArgs
 }
 
-type dummyTestDeps struct{}
+type dummyTestDeps func(pat, str string) (bool, error)
 
 func (d dummyTestDeps) MatchString(pat, str string) (bool, error)   { return false, nil }
 func (d dummyTestDeps) StartCPUProfile(io.Writer) error             { return nil }
@@ -70,7 +70,8 @@ func FlushProfiles() {
 	tests := []testing.InternalTest{}
 	benchmarks := []testing.InternalBenchmark{}
 	examples := []testing.InternalExample{}
-	dummyM := testing.MainStart(dummyTestDeps{}, tests, benchmarks, examples)
+	var f dummyTestDeps
+	dummyM := testing.MainStart(f, tests, benchmarks, examples)
 	dummyM.Run()
 
 	// restore stdout/err
