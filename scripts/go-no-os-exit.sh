@@ -11,7 +11,7 @@ for f in $candidates; do
 	files="$f $files"
 done
 
-if grep -n os.Exit $files; then
+if egrep -n '\<os\.Exit\>' $files; then
 	echo 'Direct calls to os.Exit() are forbidden, please use exit() so atexit() works'
 	exit 1
 fi
