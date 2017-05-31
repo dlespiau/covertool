@@ -55,13 +55,24 @@ func (d dummyTestDeps) WriteProfileTo(string, io.Writer, int) error { return nil
 // (a function internal to the testing package) where all reporting (cpu, mem,
 // cover, ... profiles) is flushed to disk.
 func FlushProfiles() {
-	// We define a dummy test function so we don't get the "there's no test
-	// defined!" warning from the testing package.
-	tests := []testing.InternalTest{
-		testing.InternalTest{"TestDummy", func(*testing.T) {}},
-	}
+	// Redirect Stdout/err temporarily so the testing code doesn't output the
+	// regular:
+	//   PASS
+	//   coverage: 21.4% of statements
+	// Thanks to this, we can test the output of the instrumented binary the same
+	// way the normal binary is.
+	oldstdout := os.Stdout
+	oldstderr := os.Stderr
+	os.Stdout, _ = os.Open(os.DevNull)
+	os.Stderr, _ = os.Open(os.DevNull)
+
+	tests := []testing.InternalTest{}
 	benchmarks := []testing.InternalBenchmark{}
 	examples := []testing.InternalExample{}
 	dummyM := testing.MainStart(dummyTestDeps{}, tests, benchmarks, examples)
 	dummyM.Run()
+
+	// restore stdout/err
+	os.Stdout = oldstdout
+	os.Stderr = oldstderr
 }

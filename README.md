@@ -26,17 +26,23 @@ Finally, the `example/calc` directory contains a fully working example:
 $ cd $GOPATH/src/github.com/dlespiau/covertool/examples/calc
 $ ./run-tests.sh 
 • Build the coverage-instructed version of calc
+
 • Run the unit tests
+PASS
 coverage: 7.1% of statements
+ok  	github.com/dlespiau/covertool/examples/calc	0.003s
+
 • Cover the sub() function
-coverage: 57.1% of statements
+• Result: coverage: 57.1% of statements
+
 • Cover the error path taken when not enough arguments are provided
 expected 3 arguments, got 1
-coverage: 21.4% of statements
+• Result: coverage: 21.4% of statements
+
 • Cover the error path taken when providing an unknown operation
 unknown operation: mul
-coverage: 50.0% of statements
+• Result: coverage: 50.0% of statements
+
 • Merge all coverage profiles and report the total coverage
 coverage: 92.9% of statements
-
 ```
