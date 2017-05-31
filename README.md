@@ -1,3 +1,8 @@
+
+[![Build Status](https://travis-ci.org/dlespiau/covertool.svg?branch=master)](https://travis-ci.org/dlespiau/covertool)
+
+# What is this?
+
 This repository contains support packages and tools to produce
 and use coverage-instrumented Go programs.
 
