@@ -18,14 +18,17 @@ import "os"
 
 var atexitFuncs []func()
 
-// AtExit registers a function f that will be run when exit is called.
+// AtExit registers a function f that will be run when exit is called. The
+// handlers so registered will be called the in reverse order of their
+// registration.
 func AtExit(f func()) {
 	atexitFuncs = append(atexitFuncs, f)
 }
 
 // Exit calls all AtExit handlers before exiting the process with status.
 func Exit(status int) {
-	for _, f := range atexitFuncs {
+	for i := len(atexitFuncs) - 1; i >= 0; i-- {
+		f := atexitFuncs[i]
 		f()
 	}
 	os.Exit(status)
