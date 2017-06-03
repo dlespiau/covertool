@@ -9,7 +9,7 @@ function fatal() {
 
 go install github.com/dlespiau/covertool
 
-echo "• Build the coverage-instructed version of calc"
+echo "• Build the coverage-instrumented version of calc"
 go test -o calc -covermode count &> /dev/null
 
 echo
