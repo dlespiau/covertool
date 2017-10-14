@@ -167,7 +167,7 @@ func merge(ctx *cli.Context) error {
 var mergeCommand = cli.Command{
 	Name:      "merge",
 	Usage:     "merge two or more profiles",
-	ArgsUsage: "profile profile [profile]*",
+	ArgsUsage: "profile [profile]*",
 	Action:    merge,
 	Flags: []cli.Flag{
 		cli.StringFlag{
