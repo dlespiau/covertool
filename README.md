@@ -1,13 +1,25 @@
 
 [![Build Status](https://travis-ci.org/dlespiau/covertool.svg?branch=master)](https://travis-ci.org/dlespiau/covertool)
 
-# What is this?
+# `covertool`
+
+`covertool` is a command line utility to manipulate go coverage reports. It can:
+
+- **Merge** reports together into one single report. This is useful to gather
+  reports produced by different runs and consolidate the results.
+
+# Coverage beyond unit tests
+
+Code coverage shouldn't be for unit tests only. There are many interesting
+things to say about getting coverage data for integration (end to end) tests.
+One may even want to gather coverage for a running service in production to get
+hot paths or detect unused part of an application.
+
+I call this coverage-instrumented go binaries. The full story can be read in
+this [blog post](http://damien.lespiau.name/2017/05/building-and-using-coverage.html).
 
 This repository contains support packages and tools to produce
 and use coverage-instrumented Go programs.
-
-The full story can be read in this [blog post](
-http://damien.lespiau.name/2017/05/building-and-using-coverage.html).
 
 Package [cover](https://github.com/dlespiau/covertool/tree/master/pkg/cover)
 can be used to build instrumented programs.
@@ -15,7 +27,7 @@ can be used to build instrumented programs.
 Package [exit](https://github.com/dlespiau/covertool/tree/master/pkg/exit)
 is an atexit implementation.
 
-The covertool utility can merge profiles produced by different runs of the
+The `covertool` utility can merge profiles produced by different runs of the
 same binary and display the resulting code coverage:
 
 ```
