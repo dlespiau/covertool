@@ -26,8 +26,6 @@ import (
 	"github.com/urfave/cli"
 )
 
-type Mode string
-
 type mergeContext struct {
 	// Where to write the combined result file.
 	out io.Writer
