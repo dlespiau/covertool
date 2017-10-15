@@ -123,17 +123,7 @@ func merge(ctx *cli.Context) error {
 
 	// Write out the new profile
 	output := ctx.String("output")
-	out := io.Writer(os.Stdout)
-	if output != "-" {
-		f, err := os.Create(output)
-		if err != nil {
-			return err
-		}
-		defer f.Close()
-		out = f
-	}
-
-	if err := WriteProfiles(out, profiles); err != nil {
+	if err := WriteProfilesToFile(output, profiles); err != nil {
 		return err
 	}
 
