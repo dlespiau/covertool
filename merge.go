@@ -91,28 +91,6 @@ func (ctx *mergeContext) addFile(filename string) error {
 	return nil
 }
 
-// WriteProfiles writes profiles out to w.
-func WriteProfiles(w io.Writer, profiles []*Profile) error {
-	if len(profiles) == 0 {
-		return nil
-	}
-
-	// We've checked that all input profiles have compatible modes, so we just
-	// write out the first one.
-	fmt.Fprintf(w, "mode: %s\n", profiles[0].Mode)
-	for _, profile := range profiles {
-		blocks := profile.Blocks
-		for i := range profile.Blocks {
-			fmt.Fprintf(w, "%s:%d.%d,%d.%d %d %d\n", profile.FileName,
-				blocks[i].StartLine, blocks[i].StartCol,
-				blocks[i].EndLine, blocks[i].EndCol,
-				blocks[i].NumStmt, blocks[i].Count)
-		}
-	}
-
-	return nil
-}
-
 func merge(ctx *cli.Context) error {
 	args := ctx.Args()
 	if len(args) < 2 {
