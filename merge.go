@@ -91,8 +91,8 @@ func (ctx *mergeContext) addFile(filename string) error {
 	return nil
 }
 
-// WriteProfile writes a profile out to w.
-func WriteProfile(w io.Writer, profiles []*Profile) error {
+// WriteProfiles writes profiles out to w.
+func WriteProfiles(w io.Writer, profiles []*Profile) error {
 	if len(profiles) == 0 {
 		return nil
 	}
@@ -155,7 +155,7 @@ func merge(ctx *cli.Context) error {
 		out = f
 	}
 
-	if err := WriteProfile(out, profiles); err != nil {
+	if err := WriteProfiles(out, profiles); err != nil {
 		return err
 	}
 

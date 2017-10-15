@@ -46,7 +46,7 @@ func doSort(ctx *cli.Context) error {
 		out = f
 	}
 
-	if err := WriteProfile(out, profiles); err != nil {
+	if err := WriteProfiles(out, profiles); err != nil {
 		return err
 	}
 
