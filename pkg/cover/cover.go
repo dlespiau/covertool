@@ -52,6 +52,7 @@ func (f dummyTestDeps) StopTestLog() error                          { return nil
 func (d dummyTestDeps) WriteHeapProfile(io.Writer) error            { return nil }
 func (d dummyTestDeps) WriteProfileTo(string, io.Writer, int) error { return nil }
 func (f dummyTestDeps) ImportPath() string                          { return "" }
+func (f dummyTestDeps) SetPanicOnExit0(v bool)                      {}
 
 // FlushProfiles flushes test profiles to disk. It works by build and executing
 // a dummy list of 1 test. This is to ensure we execute the M.after() function
