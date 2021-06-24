@@ -16,7 +16,8 @@ One may even want to gather coverage for a running service in production to get
 hot paths or detect unused part of an application.
 
 I call this coverage-instrumented go binaries. The full story can be read in
-this [blog post](http://damien.lespiau.name/2017/05/building-and-using-coverage.html).
+this [blog post](https://damien.lespiau.name/posts/2017-01-29-building-and-using-coverage-instrumented-programs-with-go/).
+
 
 This repository contains support packages and tools to produce
 and use coverage-instrumented Go programs.
